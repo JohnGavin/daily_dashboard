@@ -40,11 +40,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-42d6adfc7fecee5cc3d2b415fbeb4735.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<meta name="shinylive:serviceworker_dir" content=".">
-<script src="site_libs/quarto-contrib/shinylive-0.9.1/shinylive/load-shinylive-sw.js" type="module"></script>
-<script src="site_libs/quarto-contrib/shinylive-0.9.1/shinylive/run-python-blocks.js" type="module"></script>
-<link href="site_libs/quarto-contrib/shinylive-0.9.1/shinylive/shinylive.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -123,6 +118,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome</a></li>
+  <li><a href="#dashboard-pages" id="toc-dashboard-pages" class="nav-link" data-scroll-target="#dashboard-pages">Dashboard Pages</a></li>
   </ul>
 </nav>
     </div>
@@ -151,30 +147,13 @@ ul.task-list li input[type="checkbox"] {
 <section id="welcome" class="level2">
 <h2 class="anchored" data-anchor-id="welcome">Welcome</h2>
 <p>This is the daily dashboard.</p>
-<pre class="shinylive-r" data-engine="r"><code>#| '!! shinylive warning !!': |
-#|   shinylive does not work in self-contained HTML documents.
-#|   Please set `embed-resources: false` in your metadata.
-#| standalone: true
-#| viewerHeight: 400
-
-library(shiny)
-library(bslib)
-
-ui &lt;- page_fluid(
-  h2("Hello Shinylive"),
-  sliderInput("obs", "Number of observations:",
-              min = 0, max = 1000, value = 500
-  ),
-  plotOutput("distPlot")
-)
-
-server &lt;- function(input, output) {
-  output$distPlot &lt;- renderPlot({
-    hist(rnorm(input$obs))
-  })
-}
-
-shinyApp(ui, server)</code></pre>
+</section>
+<section id="dashboard-pages" class="level2">
+<h2 class="anchored" data-anchor-id="dashboard-pages">Dashboard Pages</h2>
+<ul>
+<li><a href="xkcd.html"><strong>XKCD</strong></a>: The latest comic from xkcd.com.</li>
+<li><a href="treasury.html"><strong>Treasury Rates</strong></a>: Daily US Treasury yield curves and interest rates.</li>
+</ul>
 
 
 </section>

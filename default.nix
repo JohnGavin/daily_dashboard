@@ -87,6 +87,7 @@ let
       magick
       mcptools
       mirai
+      munsell
       nanonext
       ollamar
       osmdata
@@ -114,7 +115,7 @@ let
       shinychat
       shinydashboard
       shinyjs
-      shinylive
+      # shinylive removed to build manually
       simstudy
       spelling
       stringr
@@ -185,6 +186,35 @@ let
           ggplot2;
       };
     });
+
+    shinylive_pkg = (pkgs.rPackages.buildRPackage {
+      name = "shinylive";
+      src = pkgs.fetchgit {
+        url = "https://github.com/posit-dev/r-shinylive";
+        rev = "0179e311f47144b1570e3de9c401815a20add84e";
+        sha256 = "sha256-2QmtGoKOKElLXm9m5yxixifHpNRjAqM1A7O4ZJkqeCA=";
+      };
+      propagatedBuildInputs = builtins.attrValues {
+        inherit (pkgs.rPackages) 
+          archive
+          brio
+          cli
+          fs
+          gh
+          glue
+          httpuv
+          httr2
+          jsonlite
+          pkgdepends
+          rappdirs
+          renv
+          rlang
+          rstudioapi
+          shiny
+          whisker
+          withr;
+      };
+    });
       
   system_packages = builtins.attrValues {
     inherit (pkgs) 
@@ -231,7 +261,7 @@ let
     LC_MEASUREMENT = "en_US.UTF-8";
     
     #<- buildInputs = [ randomwalk btw rpkgs system_packages ];
-    buildInputs = [ randomwalk btw ] ++ rpkgs ++ system_packages;
+    buildInputs = [ randomwalk btw shinylive_pkg ] ++ rpkgs ++ system_packages;
     shellHook = "
 # GEMINI setup
 # CI environment variable (which stands for Continuous Integration) signals to Node.js applications like the gemini-cli that they are running in a non-interactive, automated environment
@@ -249,5 +279,5 @@ echo 'PATH: $PATH' >> ~/.nix-session.log
   }; 
 in
   {
-    inherit pkgs shell;
+    inherit pkgs shell shinylive_pkg;
   }

@@ -41,9 +41,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-42d6adfc7fecee5cc3d2b415fbeb4735.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <meta name="shinylive:serviceworker_dir" content=".">
-<script src="site_libs/quarto-contrib/shinylive-0.9.1/shinylive/load-shinylive-sw.js" type="module"></script>
-<script src="site_libs/quarto-contrib/shinylive-0.9.1/shinylive/run-python-blocks.js" type="module"></script>
-<link href="site_libs/quarto-contrib/shinylive-0.9.1/shinylive/shinylive.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/shinylive-0.10.6/shinylive/load-shinylive-sw.js" type="module"></script>
+<script src="site_libs/quarto-contrib/shinylive-0.10.6/shinylive/run-python-blocks.js" type="module"></script>
+<link href="site_libs/quarto-contrib/shinylive-0.10.6/shinylive/shinylive.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -161,6 +161,8 @@ library(bslib)
 library(jsonlite)
 library(ggplot2)
 library(dplyr)
+library(munsell) # Fix for missing dependency in WASM
+library(scales)  # Fix for missing dependency in WASM
 
 ui &lt;- page_fluid(
   theme = bs_theme(version = 5),
