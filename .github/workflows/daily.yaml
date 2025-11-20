@@ -1,0 +1,45 @@
+name: Daily Dashboard Update
+
+on:
+  schedule:
+    - cron: '0 6 * * *' # Run daily at 6 AM UTC
+  workflow_dispatch:
+
+jobs:
+  update-dashboard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v27
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - name: Run Targets Pipeline
+        run: |
+          nix-shell default.nix --run "R -e 'targets::tar_make()'"
+
+      - name: Render Quarto Site
+        run: |
+          nix-shell default.nix --run "quarto render"
+
+      - name: Commit and Push Changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Daily dashboard update [skip ci]"
+          file_pattern: docs/ data/
+
+      - name: Send Email on Failure
+        if: failure()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: Daily Dashboard Update Failed
+          to: john.b.gavin+dashboard.daily@gmail.com
+          from: Daily Dashboard <${{ secrets.EMAIL_USERNAME }}>
+          body: The daily dashboard update workflow failed. Please check the logs.

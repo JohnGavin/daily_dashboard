@@ -1,0 +1,37 @@
+---
+title: "Daily Dashboard"
+format:
+  html:
+    resources: 
+      - shinylive-sw.js
+filters:
+  - shinylive
+---
+
+## Welcome
+
+This is the daily dashboard.
+
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 400
+
+library(shiny)
+library(bslib)
+
+ui <- page_fluid(
+  h2("Hello Shinylive"),
+  sliderInput("obs", "Number of observations:",
+              min = 0, max = 1000, value = 500
+  ),
+  plotOutput("distPlot")
+)
+
+server <- function(input, output) {
+  output$distPlot <- renderPlot({
+    hist(rnorm(input$obs))
+  })
+}
+
+shinyApp(ui, server)
+```

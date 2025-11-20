@@ -1,0 +1,59 @@
+---
+title: "XKCD"
+format:
+  html:
+    resources: 
+      - shinylive-sw.js
+      - data/xkcd.json
+filters:
+  - shinylive
+---
+
+## Latest XKCD
+
+```{shinylive-r}
+#| standalone: true
+#| viewerHeight: 800
+
+library(shiny)
+library(bslib)
+library(jsonlite)
+
+ui <- page_fluid(
+  theme = bs_theme(version = 5),
+  uiOutput("comic_ui")
+)
+
+server <- function(input, output, session) {
+  
+  comic_data <- reactive({
+    # Read the pre-fetched data
+    # In Shinylive, files in 'resources' are available at the root or relative path
+    jsonlite::read_json("data/xkcd.json")
+  })
+  
+  output$comic_ui <- renderUI({
+    data <- comic_data()
+    
+    card(
+      card_header(data$title),
+      div(
+        style = "text-align: center;",
+        a(
+          href = data$explain_url,
+          target = "_blank",
+          title = data$explain_url, # Hover for URL
+          img(
+            src = data$img,
+            title = data$alt, # Hover for alt text (standard behavior)
+            style = "max-width: 100%; height: auto; cursor: pointer;"
+          )
+        )
+      ),
+      card_footer(data$alt)
+    )
+  })
+}
+
+shinyApp(ui, server)
+```

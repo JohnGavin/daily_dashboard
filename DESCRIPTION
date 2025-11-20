@@ -1,0 +1,23 @@
+Package: daily.dashboard
+Title: Daily Dashboard
+Version: 0.0.0.9000
+Authors@R: 
+    person("John", "Gavin", , "john.b.gavin@gmail.com", role = c("aut", "cre"))
+Description: A Shinylive dashboard for daily updates including xkcd cartoons and treasury rates.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Imports: 
+    shiny,
+    shinylive,
+    targets,
+    tarchetypes,
+    treasury,
+    ggplot2,
+    dplyr,
+    tibble,
+    httr2,
+    rvest,
+    xml2
