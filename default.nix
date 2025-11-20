@@ -192,7 +192,6 @@ let
       bc
       btop
       cacert
-      claude-code
       cmdstan
       copilot-cli
       curlMinimal

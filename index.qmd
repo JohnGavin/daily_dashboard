@@ -12,26 +12,8 @@ filters:
 
 This is the daily dashboard.
 
-```{shinylive-r}
-#| standalone: true
-#| viewerHeight: 400
+## Dashboard Pages
 
-library(shiny)
-library(bslib)
+*   [**XKCD**](xkcd.html): The latest comic from xkcd.com.
+*   [**Treasury Rates**](treasury.html): Daily US Treasury yield curves and interest rates.
 
-ui <- page_fluid(
-  h2("Hello Shinylive"),
-  sliderInput("obs", "Number of observations:",
-              min = 0, max = 1000, value = 500
-  ),
-  plotOutput("distPlot")
-)
-
-server <- function(input, output) {
-  output$distPlot <- renderPlot({
-    hist(rnorm(input$obs))
-  })
-}
-
-shinyApp(ui, server)
-```
