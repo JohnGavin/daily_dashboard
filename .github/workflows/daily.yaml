@@ -21,6 +21,8 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          path: daily_dashboard
 
       - name: Create nix folder to silence warning
         run: mkdir -p ~/.nix-defexpr/channels
@@ -36,8 +38,8 @@ jobs:
           skipPush: true
 
       - name: Run build script
+        working-directory: daily_dashboard
         run: |
-          cd daily_dashboard
           nix-shell default.nix --quiet --run "Rscript -e 'targets::tar_make()'"
 
       - name: Render and Publish Quarto Project
