@@ -25,11 +25,30 @@ jobs:
         run: |
           nix-shell default.nix --run "quarto render --output-dir ../docs"
 
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs # This path is relative to the repository root
+
       - name: Commit and Push Changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Daily dashboard update [skip ci]"
           file_pattern: docs/ data/
+  
+  deploy:
+    needs: update-dashboard
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
       - name: Send Email on Failure
         if: failure()
