@@ -2,7 +2,7 @@ library(targets)
 library(tarchetypes)
 
 # Source R functions
-tar_source()
+tar_source(files = c("R/treasury.R", "R/xkcd.R"))
 
 # Options
 tar_option_set(
