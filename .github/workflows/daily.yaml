@@ -22,12 +22,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Create a file
-        run: touch test.txt
-
-      - name: List files
-        run: ls -R
-
       - name: Create nix folder to silence warning
         run: mkdir -p ~/.nix-defexpr/channels
 
@@ -42,21 +36,20 @@ jobs:
           skipPush: true
 
       - name: Run build script
+        working-directory: ./daily_dashboard
         run: |
-          pwd
-          ls -R
           nix-shell default.nix --quiet --run "Rscript -e 'targets::tar_make()'"
 
       - name: Render and Publish Quarto Project
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
-          path: .
+        working-directory: ./daily_dashboard
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs
+          path: ./daily_dashboard/docs
 
       - name: Send Email on Failure
         if: failure()
