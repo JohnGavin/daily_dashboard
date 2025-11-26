@@ -5,6 +5,11 @@ on:
     - cron: '0 6 * * *' # Run daily at 6 AM UTC
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   update-dashboard:
     runs-on: ubuntu-latest
@@ -12,29 +17,43 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install Nix
-        uses: cachix/install-nix-action@v27
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
         with:
-          nix_path: nixpkgs=channel:nixos-unstable
+          version: "latest"
+
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.x' # Specify your R version
 
       - name: Run Targets Pipeline
         run: |
-          nix-shell default.nix --run "R -e 'targets::tar_make()'"
+          R -e 'targets::tar_make()'
 
-      - name: Render Quarto Site
-        run: |
-          nix-shell default.nix --run "quarto render --output-dir ../docs"
+      - name: Render and Publish Quarto Project
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+          path: daily_dashboard # Path to your Quarto project
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs # This path is relative to the repository root
 
-      - name: Commit and Push Changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Send Email on Failure
+        if: failure()
+        uses: dawidd6/action-send-mail@v3
         with:
-          commit_message: "Daily dashboard update [skip ci]"
-          file_pattern: docs/ data/
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: Daily Dashboard Update Failed
+          to: john.b.gavin+dashboard.daily@gmail.com
+          from: Daily Dashboard <${{ secrets.EMAIL_USERNAME }}>
+          body: The daily dashboard update workflow failed. Please check the logs.
   
   deploy:
     needs: update-dashboard
