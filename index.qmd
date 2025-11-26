@@ -8,8 +8,6 @@ filters:
   - shinylive
 ---
 
-<!-- Triggering GitHub Actions workflow -->
-
 ## Welcome
 
 This is the daily dashboard.

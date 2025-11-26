@@ -21,3 +21,83 @@ git_commit("Fix: Simplify dashboard to XKCD only to resolve CI failures\n\n- Dis
 
 # Push (will be done separately via usethis::pr_push() if needed, but standard git push via gert for now as I am on a feature branch)
 # git_push()
+
+# Log of commands to trigger workflow after GitHub Pages setting update
+# Date: 2025-11-26
+# Issue: N/A (triggering workflow)
+gert::git_add("index.qmd")
+gert::git_commit("Trigger workflow after GitHub Pages setting update")
+gert::git_push()
+
+
+# Log of commands to trigger workflow after GitHub Pages setting update
+# Date: 2025-11-26
+# Issue: N/A (triggering workflow)
+gert::git_add("index.qmd")
+gert::git_commit("Trigger workflow after GitHub Pages setting update")
+gert::git_push()
+
+
+# Log of commands to trigger workflow after GitHub Pages setting update
+# Date: 2025-11-26
+# Issue: N/A (triggering workflow)
+gert::git_add("index.qmd")
+gert::git_commit("Trigger workflow after GitHub Pages setting update")
+gert::git_push()
+
+
+# Log of commands to trigger workflow after GitHub Pages setting update
+# Date: 2025-11-26
+# Issue: N/A (triggering workflow)
+gert::git_add("index.qmd")
+gert::git_commit("Trigger workflow after GitHub Pages setting update")
+gert::git_push()
+
+
+# Log of commands to trigger workflow after GitHub Pages setting update
+# Date: 2025-11-26
+# Issue: N/A (triggering workflow)
+gert::git_add("index.qmd")
+gert::git_commit("Trigger workflow after GitHub Pages setting update")
+gert::git_push()
+
+
+# Log of commands to trigger workflow after GitHub Pages setting update
+# Date: 2025-11-26
+# Issue: N/A (triggering workflow)
+gert::git_add("index.qmd")
+gert::git_commit("Trigger workflow after GitHub Pages setting update")
+gert::git_push()
+
+
+# Log of commands to trigger workflow after GitHub Pages setting update
+# Date: 2025-11-26
+# Issue: N/A (triggering workflow)
+gert::git_add("index.qmd")
+gert::git_commit("Trigger workflow after GitHub Pages setting update")
+gert::git_push()
+
+
+# Log of commands to trigger workflow after GitHub Pages setting update
+# Date: 2025-11-26
+# Issue: N/A (triggering workflow)
+gert::git_add("index.qmd")
+gert::git_commit("Trigger workflow after GitHub Pages setting update")
+gert::git_push()
+
+
+# Log of commands to trigger workflow after GitHub Pages setting update
+# Date: 2025-11-26
+# Issue: N/A (triggering workflow)
+gert::git_add("index.qmd")
+gert::git_commit("Trigger workflow after GitHub Pages setting update")
+gert::git_push()
+
+
+# Log of commands to trigger workflow after GitHub Pages setting update
+# Date: 2025-11-26
+# Issue: N/A (triggering workflow)
+gert::git_add("index.qmd")
+gert::git_commit("Trigger workflow after GitHub Pages setting update")
+gert::git_push()
+
