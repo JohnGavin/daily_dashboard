@@ -37,32 +37,19 @@ jobs:
 
       - name: Run build script
         run: |
-          cd daily_dashboard
+          Rscript default.R
           nix-shell default.nix --quiet --run "Rscript -e 'targets::tar_make()'"
 
       - name: Render and Publish Quarto Project
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
-          path: ./daily_dashboard
+          path: .
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./daily_dashboard/docs
-
-      - name: Send Email on Failure
-        if: failure()
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: Daily Dashboard Update Failed
-          to: john.b.gavin+dashboard.daily@gmail.com
-          from: Daily Dashboard <${{ secrets.EMAIL_USERNAME }}>
-          body: The daily dashboard update workflow failed. Please check the logs.
+          path: docs
 
   deploy:
     needs: update-dashboard
