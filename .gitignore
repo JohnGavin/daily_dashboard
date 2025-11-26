@@ -7,3 +7,4 @@ _targets/
 _frozen/
 R-libs/
 /.quarto/
+docs/

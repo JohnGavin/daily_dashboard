@@ -72,6 +72,7 @@ let
       shiny
       shinydashboard
       shinyjs
+      shinylive
       spelling
       stringr
       styler
