@@ -36,9 +36,9 @@ jobs:
           skipPush: true
 
       - name: Run build script
-        working-directory: daily_dashboard
+        working-directory: ${{ github.workspace }}/daily_dashboard
         run: |
-          nix-shell default.nix --quiet --run "Rscript -e 'targets::tar_make()'
+          nix-shell default.nix --quiet --run "Rscript -e 'targets::tar_make()'"
 
       - name: Render and Publish Quarto Project
         uses: quarto-dev/quarto-actions/publish@v2
