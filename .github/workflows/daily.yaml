@@ -1,46 +1,54 @@
 name: Daily Dashboard Update
 
 on:
+  push:
+    branches: [main, master, feat-daily-dashboard]
+  pull_request:
+    branches: [main, master, feat-daily-dashboard]
   schedule:
     - cron: '0 6 * * *' # Run daily at 6 AM UTC
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
 jobs:
   update-dashboard:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
+      - name: Create nix folder to silence warning
+        run: mkdir -p ~/.nix-defexpr/channels
+
+      - uses: cachix/install-nix-action@v31
         with:
-          version: "latest"
+          nix_path: nixpkgs=https://github.com/rstats-on-nix/nixpkgs/archive/refs/heads/r-daily.tar.gz
 
-      - name: Setup R
-        uses: r-lib/actions/setup-r@v2
+      - uses: cachix/cachix-action@v15
         with:
-          r-version: '4.x' # Specify your R version
+          name: johngavin
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+          skipPush: true
 
-      - name: Run Targets Pipeline
+      - name: Run build script
         run: |
-          R -e 'targets::tar_make()'
+          nix-shell --quiet --run "Rscript -e 'targets::tar_make()'"
 
       - name: Render and Publish Quarto Project
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
-          path: daily_dashboard # Path to your Quarto project
+          path: .
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: daily_dashboard/docs # This path is relative to the repository root
+          path: docs
 
       - name: Send Email on Failure
         if: failure()
@@ -54,7 +62,7 @@ jobs:
           to: john.b.gavin+dashboard.daily@gmail.com
           from: Daily Dashboard <${{ secrets.EMAIL_USERNAME }}>
           body: The daily dashboard update workflow failed. Please check the logs.
-  
+
   deploy:
     needs: update-dashboard
     permissions:
@@ -68,16 +76,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-      - name: Send Email on Failure
-        if: failure()
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: Daily Dashboard Update Failed
-          to: john.b.gavin+dashboard.daily@gmail.com
-          from: Daily Dashboard <${{ secrets.EMAIL_USERNAME }}>
-          body: The daily dashboard update workflow failed. Please check the logs.
