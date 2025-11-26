@@ -36,15 +36,15 @@ jobs:
           skipPush: true
 
       - name: Run build script
-        working-directory: ./daily_dashboard
         run: |
+          cd daily_dashboard
           nix-shell default.nix --quiet --run "Rscript -e 'targets::tar_make()'"
 
       - name: Render and Publish Quarto Project
         uses: quarto-dev/quarto-actions/publish@v2
-        working-directory: ./daily_dashboard
         with:
           target: gh-pages
+          path: ./daily_dashboard
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
