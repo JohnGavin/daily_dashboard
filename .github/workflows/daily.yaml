@@ -21,8 +21,6 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          path: .
 
       - name: Create nix folder to silence warning
         run: mkdir -p ~/.nix-defexpr/channels
@@ -38,6 +36,7 @@ jobs:
           skipPush: true
 
       - name: Run build script
+        working-directory: /home/runner/work/daily_dashboard/daily_dashboard
         run: |
           nix-shell default.nix --quiet --run "Rscript -e 'targets::tar_make()'"
 
