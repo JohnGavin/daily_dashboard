@@ -36,8 +36,8 @@ jobs:
           skipPush: true
 
       - name: Run build script
-        working-directory: ${{ github.workspace }}/daily_dashboard
         run: |
+          cd daily_dashboard
           nix-shell default.nix --quiet --run "Rscript -e 'targets::tar_make()'"
 
       - name: Render and Publish Quarto Project
