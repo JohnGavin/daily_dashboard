@@ -101,3 +101,57 @@ gert::git_add("index.qmd")
 gert::git_commit("Trigger workflow after GitHub Pages setting update")
 gert::git_push()
 
+
+# Log of commands to trigger workflow after GitHub Pages setting update
+# Date: 2025-11-26
+# Issue: N/A (triggering workflow)
+gert::git_add("index.qmd")
+gert::git_add("R/setup/fix_ci_dashboard.R")
+gert::git_commit("Remove comment from index.qmd to trigger workflow")
+gert::git_push()
+
+
+# Log of commands to trigger workflow after GitHub Pages setting update
+# Date: 2025-11-26
+# Issue: N/A (triggering workflow)
+gert::git_add("index.qmd")
+gert::git_add("R/setup/fix_ci_dashboard.R")
+gert::git_commit("Remove comment from index.qmd to trigger workflow")
+gert::git_push()
+
+
+# Log of commands to trigger workflow after GitHub Pages setting update
+# Date: 2025-11-26
+# Issue: N/A (triggering workflow)
+gert::git_add("index.qmd")
+gert::git_add("R/setup/fix_ci_dashboard.R")
+gert::git_commit("Remove comment from index.qmd to trigger workflow")
+gert::git_push()
+
+
+# Log of commands to trigger workflow after GitHub Pages setting update
+# Date: 2025-11-26
+# Issue: N/A (triggering workflow)
+gert::git_add("index.qmd")
+gert::git_add("R/setup/fix_ci_dashboard.R")
+gert::git_commit("Remove comment from index.qmd to trigger workflow")
+gert::git_push()
+
+
+# Log of commands to trigger workflow after GitHub Pages setting update
+# Date: 2025-11-26
+# Issue: N/A (triggering workflow)
+gert::git_add("index.qmd")
+gert::git_add("R/setup/fix_ci_dashboard.R")
+gert::git_commit("Remove comment from index.qmd to trigger workflow")
+gert::git_push()
+
+
+# Log of commands to trigger workflow after GitHub Pages setting update
+# Date: 2025-11-26
+# Issue: N/A (triggering workflow)
+gert::git_add("index.qmd")
+gert::git_add("R/setup/fix_ci_dashboard.R")
+gert::git_commit("Remove comment from index.qmd to trigger workflow")
+gert::git_push()
+
