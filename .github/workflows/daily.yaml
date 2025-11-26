@@ -22,6 +22,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Create a file
+        run: touch test.txt
+
+      - name: List files
+        run: ls -R
+
       - name: Create nix folder to silence warning
         run: mkdir -p ~/.nix-defexpr/channels
 
@@ -36,8 +42,9 @@ jobs:
           skipPush: true
 
       - name: Run build script
-        working-directory: /home/runner/work/daily_dashboard/daily_dashboard
         run: |
+          pwd
+          ls -R
           nix-shell default.nix --quiet --run "Rscript -e 'targets::tar_make()'"
 
       - name: Render and Publish Quarto Project
