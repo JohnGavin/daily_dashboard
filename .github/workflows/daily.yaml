@@ -40,7 +40,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs # This path is relative to the repository root
+          path: daily_dashboard/docs # This path is relative to the repository root
 
       - name: Send Email on Failure
         if: failure()
