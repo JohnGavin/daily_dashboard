@@ -36,9 +36,7 @@ jobs:
           skipPush: true
 
       - name: Run build script
-        run: |
-          Rscript default.R
-          nix-shell default.nix --quiet --run "Rscript -e 'targets::tar_make()'"
+        run: nix-shell --run "Rscript default.R && nix-shell default.nix --quiet --run \"Rscript -e 'targets::tar_make()'\""
 
       - name: Render and Publish Quarto Project
         uses: quarto-dev/quarto-actions/publish@v2
