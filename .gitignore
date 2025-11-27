@@ -8,3 +8,6 @@ _frozen/
 R-libs/
 /.quarto/
 docs/
+/index.qmd
+/xkcd.qmd
+/treasury.qmd

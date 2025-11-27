@@ -43,6 +43,9 @@ jobs:
           echo 'local_lib <- file.path(getwd(), "R-lib-local"); if(dir.exists(local_lib)) .libPaths(c(local_lib, .libPaths()))' > .Rprofile
           nix-shell default.nix --run "R CMD INSTALL . -l R-lib-local && if [ -f '_targets.R' ]; then R -e 'targets::tar_make()'; fi"
 
+      - name: Prepare Source Files
+        run: cp inst/qmd/*.qmd .
+
       - name: Render Quarto Site
         run: nix-shell default.nix --run "quarto render"
 
