@@ -44,7 +44,9 @@ jobs:
           nix-shell default.nix --run "R CMD INSTALL . -l R-lib-local && if [ -f '_targets.R' ]; then R -e 'targets::tar_make()'; fi"
 
       - name: Prepare Source Files
-        run: cp inst/qmd/*.qmd .
+        run: |
+          cp inst/qmd/*.qmd .
+          rm -f AGENTS.md
 
       - name: Render Quarto Site
         run: nix-shell default.nix --run "quarto render"
