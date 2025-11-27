@@ -14,10 +14,11 @@ Imports:
     shinylive,
     targets,
     tarchetypes,
-    treasury,
     ggplot2,
     dplyr,
     tibble,
     httr2,
     rvest,
-    xml2
+    xml2,
+    bslib,
+    jsonlite
