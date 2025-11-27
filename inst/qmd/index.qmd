@@ -1,7 +1,5 @@
 ---
 title: "Daily Dashboard"
-format:
-  html:
 ---
 
 ## Welcome
