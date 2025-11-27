@@ -3,10 +3,7 @@ title: "Treasury Rates"
 format:
   html:
     resources: 
-      - shinylive-sw.js
       - data/treasury.json
-filters:
-  - shinylive
 ---
 
 ## Daily Treasury Rates
