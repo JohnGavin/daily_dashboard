@@ -35,10 +35,12 @@ jobs:
         run: nix-build --quiet default.nix
 
       - name: Run Targets Pipeline
-        run: nix-shell default.nix --run "R CMD INSTALL . && R -e 'targets::tar_make()'"
+        run: |
+          mkdir -p R-lib-local
+          nix-shell default.nix --run "export R_LIBS_USER=$PWD/R-lib-local && R CMD INSTALL . -l $PWD/R-lib-local && R -e 'targets::tar_make()'"
 
       - name: Render Quarto Site
-        run: nix-shell default.nix --run "quarto render"
+        run: nix-shell default.nix --run "export R_LIBS_USER=$PWD/R-lib-local && quarto render"
 
       - name: Publish to GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2
