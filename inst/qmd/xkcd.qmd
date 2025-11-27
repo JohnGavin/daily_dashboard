@@ -58,3 +58,17 @@ if (file.exists(data_path)) {
   print(paste("Error: Data file not found at", data_path))
 }
 ```
+
+```{=html}
+<script>
+// Immediately unregister any service workers to fix the "cannot open connection" Shinylive error
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then(function(registrations) {
+    for(let registration of registrations) {
+      console.log('Unregistering Service Worker:', registration);
+      registration.unregister();
+    }
+  });
+}
+</script>
+```
