@@ -35,7 +35,7 @@ jobs:
         run: nix-build --quiet default.nix
 
       - name: Run Targets Pipeline
-        run: nix-shell default.nix --run "R -e 'targets::tar_make()'"
+        run: nix-shell default.nix --run "R CMD INSTALL . && R -e 'targets::tar_make()'"
 
       - name: Render Quarto Site
         run: nix-shell default.nix --run "quarto render"

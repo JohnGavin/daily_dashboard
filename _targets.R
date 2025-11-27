@@ -6,7 +6,7 @@ tar_source(files = c("R/treasury.R", "R/xkcd.R"))
 
 # Options
 tar_option_set(
-  packages = c("tibble", "dplyr", "httr2", "jsonlite", "daily.dashboard")
+  packages = c("tibble", "dplyr", "httr2", "jsonlite", "dailydashboard")
 )
 
 # Pipeline
