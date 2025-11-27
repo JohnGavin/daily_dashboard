@@ -1,18 +1,16 @@
 project:
   type: website
   output-dir: docs
-  render:
-    - inst/qmd/
 
 website:
   title: "Daily Dashboard"
   navbar:
     left:
-      - href: inst/qmd/index.qmd
+      - href: index.qmd
         text: Home
-      - href: inst/qmd/xkcd.qmd
+      - href: xkcd.qmd
         text: XKCD
-      # - href: inst/qmd/treasury.qmd
+      # - href: treasury.qmd
       #   text: Treasury
 
 format:
