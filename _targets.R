@@ -1,17 +1,12 @@
 library(targets)
 library(tarchetypes)
 
-# Diagnostics
-message("R library paths: ", paste(.libPaths(), collapse = ", "))
-message("R_LIBS_USER: ", Sys.getenv("R_LIBS_USER"))
-message("Checking dailydashboard availability: ", system.file(package = "dailydashboard"))
-
 # Source R functions
-tar_source(files = c("R/treasury.R", "R/xkcd.R"))
+tar_source(files = c("R/xkcd.R"))
 
 # Options
 tar_option_set(
-  packages = c("tibble", "dplyr", "httr2", "jsonlite", "dailydashboard")
+  packages = c("tibble", "dplyr", "httr2", "jsonlite")
 )
 
 # Pipeline

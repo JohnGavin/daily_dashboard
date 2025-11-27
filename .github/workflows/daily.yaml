@@ -35,10 +35,7 @@ jobs:
         run: nix-build --quiet default.nix
 
       - name: Run Targets Pipeline
-        run: |
-          mkdir -p R-lib-local
-          echo "R_LIBS_USER=${{ github.workspace }}/R-lib-local" >> .Renviron
-          nix-shell default.nix --run "R CMD INSTALL . -l R-lib-local && if [ -f '_targets.R' ]; then R -e 'targets::tar_make()'; fi"
+        run: nix-shell default.nix --run "if [ -f '_targets.R' ]; then R -e 'targets::tar_make()'; fi"
 
       - name: Render Quarto Site
         run: nix-shell default.nix --run "quarto render"
