@@ -6,6 +6,9 @@ on:
   schedule:
     - cron: '0 0 * * *' # Daily at midnight
 
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     name: Build and Deploy
@@ -47,6 +50,19 @@ jobs:
         run: |
           QUARTO_BIN_DIR=$(nix-shell default.nix --run "dirname \$(which quarto)")
           echo "$QUARTO_BIN_DIR" >> $GITHUB_PATH
+
+      - name: Create gh-pages branch if missing
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          if ! git ls-remote --exit-code --heads origin gh-pages; then
+            echo "Creating gh-pages branch..."
+            git checkout --orphan gh-pages
+            git reset --hard
+            git commit --allow-empty -m "Initialize gh-pages branch"
+            git push origin gh-pages
+            git checkout -
+          fi
 
       - name: Publish to GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2
