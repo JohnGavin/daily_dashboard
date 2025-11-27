@@ -43,6 +43,11 @@ jobs:
       - name: Render Quarto Site
         run: nix-shell default.nix --run "quarto render"
 
+      - name: Expose Quarto to GHA Path
+        run: |
+          QUARTO_BIN_DIR=$(nix-shell default.nix --run "dirname \$(which quarto)")
+          echo "$QUARTO_BIN_DIR" >> $GITHUB_PATH
+
       - name: Publish to GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2
         with:
