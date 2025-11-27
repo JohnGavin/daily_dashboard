@@ -37,7 +37,7 @@ jobs:
 
       - name: Run build script
         run: |
-          nix-shell -p R rPackages.rix rPackages.cli --run "Rscript default.R && ls -l"
+          nix-shell -p R rPackages.rix rPackages.cli rPackages.rlang --run "Rscript default.R && ls -l"
           nix-shell --run "R -e 'targets::tar_make()'"
 
       - name: Render and Publish Quarto Project
