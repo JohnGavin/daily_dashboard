@@ -1,0 +1,16 @@
+<script>
+// Immediately unregister any service workers to fix the "cannot open connection" Shinylive error
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then(function(registrations) {
+    for(let registration of registrations) {
+      console.log('Unregistering Service Worker:', registration);
+      registration.unregister();
+    }
+    if (registrations.length > 0) {
+      console.log('Service Workers unregistered. Reloading page...');
+      // Optional: Reload to ensure clean state, but might cause loop if not careful.
+      // Better to just let the next navigation be clean.
+    }
+  });
+}
+</script>
