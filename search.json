@@ -105,15 +105,15 @@
     "text": "treasury daily interest rates page\n\nDigest and use https://cran.r-project.org/web/packages/treasury/index.html\nTargets pipeline generates daily treasury rates by categories\n\npar yield curves\ntreasury bills\nlong-term rates\nreal yield curves"
   },
   {
-    "objectID": "inst/qmd/xkcd.html",
-    "href": "inst/qmd/xkcd.html",
+    "objectID": "inst/qmd/xkcd_static.html",
+    "href": "inst/qmd/xkcd_static.html",
     "title": "XKCD",
     "section": "",
     "text": "&lt;div class=\"card\"&gt;\n  &lt;div class=\"card-header\"&gt;Satellite Imagery&lt;/div&gt;\n  &lt;div style=\"text-align: center; padding: 20px;\"&gt;\n    &lt;a href=\"https://www.explainxkcd.com/wiki/index.php/3173\" target=\"_blank\" title=\"https://www.explainxkcd.com/wiki/index.php/3173\"&gt;\n      &lt;img src=\"https://imgs.xkcd.com/comics/satellite_imagery.png\" title=\"Every weekend I take an ATV out into the desert and spend a day tracing a faint \"(C) GOOGLE 2009\" watermark across the landscape.\" style=\"max-width: 100%; height: auto; cursor: pointer;\"&gt;\n    &lt;/a&gt;\n  &lt;/div&gt;\n  &lt;div class=\"card-footer text-muted\"&gt;Every weekend I take an ATV out into the desert and spend a day tracing a faint \"(C) GOOGLE 2009\" watermark across the landscape.&lt;/div&gt;\n&lt;/div&gt;"
   },
   {
-    "objectID": "inst/qmd/xkcd.html#latest-xkcd",
-    "href": "inst/qmd/xkcd.html#latest-xkcd",
+    "objectID": "inst/qmd/xkcd_static.html#latest-xkcd",
+    "href": "inst/qmd/xkcd_static.html#latest-xkcd",
     "title": "XKCD",
     "section": "",
     "text": "&lt;div class=\"card\"&gt;\n  &lt;div class=\"card-header\"&gt;Satellite Imagery&lt;/div&gt;\n  &lt;div style=\"text-align: center; padding: 20px;\"&gt;\n    &lt;a href=\"https://www.explainxkcd.com/wiki/index.php/3173\" target=\"_blank\" title=\"https://www.explainxkcd.com/wiki/index.php/3173\"&gt;\n      &lt;img src=\"https://imgs.xkcd.com/comics/satellite_imagery.png\" title=\"Every weekend I take an ATV out into the desert and spend a day tracing a faint \"(C) GOOGLE 2009\" watermark across the landscape.\" style=\"max-width: 100%; height: auto; cursor: pointer;\"&gt;\n    &lt;/a&gt;\n  &lt;/div&gt;\n  &lt;div class=\"card-footer text-muted\"&gt;Every weekend I take an ATV out into the desert and spend a day tracing a faint \"(C) GOOGLE 2009\" watermark across the landscape.&lt;/div&gt;\n&lt;/div&gt;"
@@ -140,15 +140,15 @@
     "text": "Dashboard Pages\n\nXKCD: The latest comic from xkcd.com.\nTreasury Rates: Daily US Treasury yield curves and interest rates."
   },
   {
-    "objectID": "R-lib-local/dailydashboard/qmd/xkcd.html",
-    "href": "R-lib-local/dailydashboard/qmd/xkcd.html",
+    "objectID": "R-lib-local/dailydashboard/qmd/xkcd_static.html",
+    "href": "R-lib-local/dailydashboard/qmd/xkcd_static.html",
     "title": "XKCD",
     "section": "",
     "text": "[1] \"Error: Data file not found at data/xkcd.json\""
   },
   {
-    "objectID": "R-lib-local/dailydashboard/qmd/xkcd.html#latest-xkcd",
-    "href": "R-lib-local/dailydashboard/qmd/xkcd.html#latest-xkcd",
+    "objectID": "R-lib-local/dailydashboard/qmd/xkcd_static.html#latest-xkcd",
+    "href": "R-lib-local/dailydashboard/qmd/xkcd_static.html#latest-xkcd",
     "title": "XKCD",
     "section": "",
     "text": "[1] \"Error: Data file not found at data/xkcd.json\""
