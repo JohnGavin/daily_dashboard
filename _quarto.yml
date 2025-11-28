@@ -8,8 +8,8 @@ website:
     left:
       - href: inst/qmd/index.qmd
         text: Home
-      - href: inst/qmd/xkcd_static.qmd
-        text: XKCD
+      - href: inst/qmd/dailydashboard.qmd
+        text: Dashboard
       # - href: inst/qmd/treasury.qmd
       #   text: Treasury
 

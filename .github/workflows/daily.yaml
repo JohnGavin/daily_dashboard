@@ -46,8 +46,10 @@ jobs:
       - name: Render Quarto Site
         run: nix-shell default.nix --run "quarto render"
 
-      - name: Flatten Output for XKCD
-        run: cp docs/inst/qmd/xkcd_static.html docs/xkcd_static.html
+      - name: Flatten Output and Deploy Killer SW
+        run: |
+          cp docs/inst/qmd/dailydashboard.html docs/dailydashboard.html
+          cp shinylive-sw.js docs/shinylive-sw.js
 
       - name: Expose Quarto to GHA Path
         run: |
