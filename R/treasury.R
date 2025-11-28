@@ -7,6 +7,9 @@ library(janitor) # For clean_names()
 library(rvest) # For HTML scraping
 library(xml2) # For HTML parsing
 
+# Dummy comment to force new commit
+#' Fetch Treasury data
+
 fetch_treasury_data <- function() {
   message("Starting fetch_treasury_data() with HTML scraping.")
 
