@@ -32,6 +32,7 @@ let
       tarchetypes
       targets
       tibble
+      treasury
       xml2;
   };
       

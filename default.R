@@ -17,7 +17,8 @@ r_pkgs <- c(
   "cli",
   "rlang",
   "codetools", 
-  "curl"
+  "curl",
+  "treasury"
 )
 
 system_pkgs <- c(
