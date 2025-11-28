@@ -2,51 +2,58 @@
 #'
 #' @return A list containing various treasury rates
 #' @export
+library(dplyr) # For mutate, bind_rows, %>%, etc.
+library(janitor) # For clean_names()
+library(rvest) # For HTML scraping
+library(xml2) # For HTML parsing
 
 fetch_treasury_data <- function() {
-  # Define the base URL for Treasury API
-  base_url <- "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/json/yield"
+  message("Starting fetch_treasury_data() with HTML scraping.")
+
+  # Base URL for the Treasury yield curve data HTML table
+  # This matches the pattern the 'treasury' package uses
+  url <- paste0(
+    "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/",
+    "TextView?type=daily_treasury_yield_curve&field_tdr_date_value=all"
+  )
   
-  # Fetch data for the current year (or adapt as needed)
-  # For simplicity, let's fetch for a recent full year
-  current_year <- as.integer(format(Sys.Date(), "%Y"))
-  url <- paste0(base_url, "?queryType=DailyArchive&month=all&year=", current_year)
-  
-  message("Fetching Treasury data directly from: ", url)
+  message("Fetching Treasury data from: ", url)
   
   response <- tryCatch({
     httr2::request(url) %>%
-      httr2::req_timeout(30) %>% # Set a 30-second timeout
-      httr2::req_error(is_error = ~ FALSE) %>% # Don't error on bad status, check later
+      httr2::req_timeout(60) %>% # Extend timeout for HTML scraping
+      httr2::req_error(is_error = ~ FALSE) %>%
       httr2::req_perform()
   }, error = function(e) {
-    warning("HTTP request failed: ", e$message)
+    warning("HTTP request failed during HTML fetch: ", e$message)
     return(NULL)
   })
   
   if (is.null(response) || httr2::resp_is_error(response)) {
-    warning("Failed to fetch Treasury data. Status: ", httr2::resp_status(response))
+    warning("Failed to fetch Treasury HTML. Status: ", httr2::resp_status(response))
     return(NULL)
   }
   
-  data_list <- httr2::resp_body_json(response)
+  # Parse HTML and extract the table
+  page_content <- httr2::resp_body_html(response)
   
-  # The API returns a list of dictionaries, where "data" key holds the actual list
-  # We need to extract the "data" part and convert it to a data frame
-  if (!is.null(data_list$data) && length(data_list$data) > 0) {
-    treasury_df <- bind_rows(data_list$data) %>%
-      janitor::clean_names() # Clean names for easier access
-    
-    # Convert date strings to Date objects
-    # Assuming the date field is 'new_date' from janitor::clean_names
-    treasury_df <- treasury_df %>%
-      mutate(new_date = as.Date(new_date))
-    
-    message("Successfully fetched ", nrow(treasury_df), " rows of Treasury data.")
+  # The 'treasury' package often targets tables with specific attributes
+  # A common pattern is to look for tables with class 'views-table' or similar
+  # Based on quick inspection of Treasury website, it's often the first table with data.
+  # Let's try to extract the main data table
+  
+  tables <- page_content %>% rvest::html_table()
+  
+  if (length(tables) > 0) {
+    # Assume the first table is the one with the daily rates
+    treasury_df <- tables[[1]] %>%
+      janitor::clean_names() %>%
+      mutate(date = as.Date(date)) # Convert date column
+
+    message("Successfully scraped ", nrow(treasury_df), " rows of Treasury data.")
     return(treasury_df)
-    
   } else {
-    message("No data found in Treasury API response.")
+    message("No tables found in the fetched HTML.")
     return(NULL)
   }
 }
