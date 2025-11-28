@@ -46,11 +46,6 @@ jobs:
       - name: Render Quarto Site
         run: nix-shell default.nix --run "quarto render"
 
-      - name: Flatten Output and Deploy Killer SW
-        run: |
-          cp docs/inst/qmd/dailydashboard.html docs/dailydashboard.html
-          cp shinylive-sw.js docs/shinylive-sw.js
-
       - name: Expose Quarto to GHA Path
         run: |
           QUARTO_BIN_DIR=$(nix-shell default.nix --run "dirname \$(which quarto)")

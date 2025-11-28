@@ -6,11 +6,11 @@ website:
   title: "Daily Dashboard"
   navbar:
     left:
-      - href: inst/qmd/index.qmd
+      - href: index.qmd
         text: Home
-      - href: inst/qmd/dailydashboard.qmd
+      - href: dailydashboard.qmd
         text: Dashboard
-      # - href: inst/qmd/treasury.qmd
+      # - href: treasury.qmd
       #   text: Treasury
 
 format:
