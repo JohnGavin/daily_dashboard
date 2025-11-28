@@ -46,6 +46,9 @@ jobs:
       - name: Render Quarto Site
         run: nix-shell default.nix --run "quarto render"
 
+      - name: Flatten Output for XKCD
+        run: cp docs/inst/qmd/xkcd.html docs/xkcd.html
+
       - name: Expose Quarto to GHA Path
         run: |
           QUARTO_BIN_DIR=$(nix-shell default.nix --run "dirname \$(which quarto)")
