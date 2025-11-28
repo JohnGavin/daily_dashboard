@@ -1,31 +1,17 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Redirecting…",
+    "objectID": "dailydashboard.html",
+    "href": "dailydashboard.html",
+    "title": "XKCD",
     "section": "",
-    "text": "Click here if you are not redirected."
+    "text": "&lt;div class=\"card\"&gt;\n  &lt;div class=\"card-header\"&gt;Satellite Imagery&lt;/div&gt;\n  &lt;div style=\"text-align: center; padding: 20px;\"&gt;\n    &lt;a href=\"https://www.explainxkcd.com/wiki/index.php/3173\" target=\"_blank\" title=\"https://www.explainxkcd.com/wiki/index.php/3173\"&gt;\n      &lt;img src=\"https://imgs.xkcd.com/comics/satellite_imagery.png\" title=\"Every weekend I take an ATV out into the desert and spend a day tracing a faint \"(C) GOOGLE 2009\" watermark across the landscape.\" style=\"max-width: 100%; height: auto; cursor: pointer;\"&gt;\n    &lt;/a&gt;\n  &lt;/div&gt;\n  &lt;div class=\"card-footer text-muted\"&gt;Every weekend I take an ATV out into the desert and spend a day tracing a faint \"(C) GOOGLE 2009\" watermark across the landscape.&lt;/div&gt;\n&lt;/div&gt;"
   },
   {
-    "objectID": "R-lib-local/dailydashboard/qmd/index.html",
-    "href": "R-lib-local/dailydashboard/qmd/index.html",
-    "title": "Daily Dashboard",
+    "objectID": "dailydashboard.html#latest-xkcd",
+    "href": "dailydashboard.html#latest-xkcd",
+    "title": "XKCD",
     "section": "",
-    "text": "This is the daily dashboard."
-  },
-  {
-    "objectID": "R-lib-local/dailydashboard/qmd/index.html#welcome",
-    "href": "R-lib-local/dailydashboard/qmd/index.html#welcome",
-    "title": "Daily Dashboard",
-    "section": "",
-    "text": "This is the daily dashboard."
-  },
-  {
-    "objectID": "R-lib-local/dailydashboard/qmd/index.html#dashboard-pages",
-    "href": "R-lib-local/dailydashboard/qmd/index.html#dashboard-pages",
-    "title": "Daily Dashboard",
-    "section": "Dashboard Pages",
-    "text": "Dashboard Pages\n\nXKCD: The latest comic from xkcd.com.\nTreasury Rates: Daily US Treasury yield curves and interest rates."
+    "text": "&lt;div class=\"card\"&gt;\n  &lt;div class=\"card-header\"&gt;Satellite Imagery&lt;/div&gt;\n  &lt;div style=\"text-align: center; padding: 20px;\"&gt;\n    &lt;a href=\"https://www.explainxkcd.com/wiki/index.php/3173\" target=\"_blank\" title=\"https://www.explainxkcd.com/wiki/index.php/3173\"&gt;\n      &lt;img src=\"https://imgs.xkcd.com/comics/satellite_imagery.png\" title=\"Every weekend I take an ATV out into the desert and spend a day tracing a faint \"(C) GOOGLE 2009\" watermark across the landscape.\" style=\"max-width: 100%; height: auto; cursor: pointer;\"&gt;\n    &lt;/a&gt;\n  &lt;/div&gt;\n  &lt;div class=\"card-footer text-muted\"&gt;Every weekend I take an ATV out into the desert and spend a day tracing a faint \"(C) GOOGLE 2009\" watermark across the landscape.&lt;/div&gt;\n&lt;/div&gt;"
   },
   {
     "objectID": "task.html",
@@ -56,25 +42,25 @@
     "text": "Automation: Daily GitHub Actions workflow running targets::tar_make().\nEnvironment: Nix-based reproducibility."
   },
   {
-    "objectID": "inst/qmd/index.html",
-    "href": "inst/qmd/index.html",
-    "title": "Daily Dashboard",
+    "objectID": "prompt_dashboard.html",
+    "href": "prompt_dashboard.html",
+    "title": "prompt_dashboard.md describes this project (Shinylive dashboard).",
     "section": "",
-    "text": "This is the daily dashboard."
+    "text": "Based on ./prompt_dashboard.md, create/update 1) ./task.md and 2) ./implementation_plan.md"
   },
   {
-    "objectID": "inst/qmd/index.html#welcome",
-    "href": "inst/qmd/index.html#welcome",
-    "title": "Daily Dashboard",
-    "section": "",
-    "text": "This is the daily dashboard."
+    "objectID": "prompt_dashboard.html#xkcd.com",
+    "href": "prompt_dashboard.html#xkcd.com",
+    "title": "prompt_dashboard.md describes this project (Shinylive dashboard).",
+    "section": "xkcd.com",
+    "text": "xkcd.com\n\npage title ‘xkcd cartoon’\ndashboard page contains latest xkcd.com cartoon\n\nwith the xkcd.com caption at bottom of image.\nClick on image to jump to the appropriate xkdc related webpage that explains the context of the cartoon https://www.explainxkcd.com/wiki/index.php/Main_Page\n\nthe url for the related webpage appears when the mouse hovers over that image."
   },
   {
-    "objectID": "inst/qmd/index.html#dashboard-pages",
-    "href": "inst/qmd/index.html#dashboard-pages",
-    "title": "Daily Dashboard",
-    "section": "Dashboard Pages",
-    "text": "Dashboard Pages\n\nXKCD: The latest comic from xkcd.com.\nTreasury Rates: Daily US Treasury yield curves and interest rates."
+    "objectID": "prompt_dashboard.html#treasury-daily-interest-rates-page",
+    "href": "prompt_dashboard.html#treasury-daily-interest-rates-page",
+    "title": "prompt_dashboard.md describes this project (Shinylive dashboard).",
+    "section": "treasury daily interest rates page",
+    "text": "treasury daily interest rates page\n\nDigest and use https://cran.r-project.org/web/packages/treasury/index.html\nTargets pipeline generates daily treasury rates by categories\n\npar yield curves\ntreasury bills\nlong-term rates\nreal yield curves"
   },
   {
     "objectID": "implementation_plan.html",
@@ -98,80 +84,24 @@
     "text": "Investigate Treasury Package: Check why treasury data fetching might fail (API limits, package issues).\nRe-enable Targets: Uncomment targets in _targets.R.\nRe-enable Nav: Uncomment link in _quarto.yml.\nTest: Ensure both pages load correctly."
   },
   {
-    "objectID": "prompt_dashboard.html",
-    "href": "prompt_dashboard.html",
-    "title": "prompt_dashboard.md describes this project (Shinylive dashboard).",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Daily Dashboard",
     "section": "",
-    "text": "Based on ./prompt_dashboard.md, create/update 1) ./task.md and 2) ./implementation_plan.md"
+    "text": "This is the daily dashboard."
   },
   {
-    "objectID": "prompt_dashboard.html#xkcd.com",
-    "href": "prompt_dashboard.html#xkcd.com",
-    "title": "prompt_dashboard.md describes this project (Shinylive dashboard).",
-    "section": "xkcd.com",
-    "text": "xkcd.com\n\npage title ‘xkcd cartoon’\ndashboard page contains latest xkcd.com cartoon\n\nwith the xkcd.com caption at bottom of image.\nClick on image to jump to the appropriate xkdc related webpage that explains the context of the cartoon https://www.explainxkcd.com/wiki/index.php/Main_Page\n\nthe url for the related webpage appears when the mouse hovers over that image."
-  },
-  {
-    "objectID": "prompt_dashboard.html#treasury-daily-interest-rates-page",
-    "href": "prompt_dashboard.html#treasury-daily-interest-rates-page",
-    "title": "prompt_dashboard.md describes this project (Shinylive dashboard).",
-    "section": "treasury daily interest rates page",
-    "text": "treasury daily interest rates page\n\nDigest and use https://cran.r-project.org/web/packages/treasury/index.html\nTargets pipeline generates daily treasury rates by categories\n\npar yield curves\ntreasury bills\nlong-term rates\nreal yield curves"
-  },
-  {
-    "objectID": "inst/qmd/treasury.html",
-    "href": "inst/qmd/treasury.html",
-    "title": "Treasury Rates",
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "Daily Dashboard",
     "section": "",
-    "text": "# library(shiny)\n# library(bslib)\n# library(jsonlite)\n# library(ggplot2)\n# library(dplyr)\n# library(munsell) # Fix for missing dependency in WASM\n# library(scales)  # Fix for missing dependency in WASM\n\n# ui &lt;- page_fluid(\n#   theme = bs_theme(version = 5),\n#   navset_card_tab(\n#     nav_panel(\"Yield Curve\", plotOutput(\"yield_plot\")),\n#     nav_panel(\"Bill Rates\", plotOutput(\"bill_plot\")),\n#     nav_panel(\"Long Term\", plotOutput(\"long_term_plot\")),\n#     nav_panel(\"Real Yield\", plotOutput(\"real_plot\"))\n#   )\n# )\n\n# server &lt;- function(input, output, session) {\n  \n#   treasury_data &lt;- reactive({\n#     jsonlite::read_json(\"data/treasury.json\", simplifyVector = TRUE)\n#   })\n  \n#   output$yield_plot &lt;- renderPlot({\n#     data &lt;- treasury_data()$yield_curve\n#     # Assuming data structure from treasury package (date, value, var/maturity)\n#     # We might need to inspect the data structure. \n#     # For now, assuming standard tidy format or similar.\n#     # If it's wide, we might need to pivot.\n    \n#     # Since we don't know the exact structure without running it, \n#     # we'll try to plot whatever we get, or print str() if debugging.\n    \n#     # Let's assume it has a 'date' and columns for rates.\n#     # If simplifyVector=TRUE, it should be a data frame.\n    \n#     if (is.null(data)) return(NULL)\n    \n#     # Basic visualization - needs refinement based on actual data structure\n#     # For now, just plotting the first numeric column vs Date if possible\n    \n#     # If the data is a list of lists (from JSON), simplifyVector might handle it.\n    \n#     # Placeholder plot\n#     plot(1, type=\"n\", main=\"Yield Curve Data Loaded\")\n#     text(1, 1, paste(\"Rows:\", nrow(data)))\n#   })\n  \n#   output$bill_plot &lt;- renderPlot({\n#     plot(1, type=\"n\", main=\"Bill Rates\")\n#   })\n  \n#   output$long_term_plot &lt;- renderPlot({\n#     plot(1, type=\"n\", main=\"Long Term Rates\")\n#   })\n  \n#   output$real_plot &lt;- renderPlot({\n#     plot(1, type=\"n\", main=\"Real Yield Rates\")\n#   })\n# }\n\n# shinyApp(ui, server)"
+    "text": "This is the daily dashboard."
   },
   {
-    "objectID": "inst/qmd/treasury.html#daily-treasury-rates",
-    "href": "inst/qmd/treasury.html#daily-treasury-rates",
-    "title": "Treasury Rates",
-    "section": "",
-    "text": "# library(shiny)\n# library(bslib)\n# library(jsonlite)\n# library(ggplot2)\n# library(dplyr)\n# library(munsell) # Fix for missing dependency in WASM\n# library(scales)  # Fix for missing dependency in WASM\n\n# ui &lt;- page_fluid(\n#   theme = bs_theme(version = 5),\n#   navset_card_tab(\n#     nav_panel(\"Yield Curve\", plotOutput(\"yield_plot\")),\n#     nav_panel(\"Bill Rates\", plotOutput(\"bill_plot\")),\n#     nav_panel(\"Long Term\", plotOutput(\"long_term_plot\")),\n#     nav_panel(\"Real Yield\", plotOutput(\"real_plot\"))\n#   )\n# )\n\n# server &lt;- function(input, output, session) {\n  \n#   treasury_data &lt;- reactive({\n#     jsonlite::read_json(\"data/treasury.json\", simplifyVector = TRUE)\n#   })\n  \n#   output$yield_plot &lt;- renderPlot({\n#     data &lt;- treasury_data()$yield_curve\n#     # Assuming data structure from treasury package (date, value, var/maturity)\n#     # We might need to inspect the data structure. \n#     # For now, assuming standard tidy format or similar.\n#     # If it's wide, we might need to pivot.\n    \n#     # Since we don't know the exact structure without running it, \n#     # we'll try to plot whatever we get, or print str() if debugging.\n    \n#     # Let's assume it has a 'date' and columns for rates.\n#     # If simplifyVector=TRUE, it should be a data frame.\n    \n#     if (is.null(data)) return(NULL)\n    \n#     # Basic visualization - needs refinement based on actual data structure\n#     # For now, just plotting the first numeric column vs Date if possible\n    \n#     # If the data is a list of lists (from JSON), simplifyVector might handle it.\n    \n#     # Placeholder plot\n#     plot(1, type=\"n\", main=\"Yield Curve Data Loaded\")\n#     text(1, 1, paste(\"Rows:\", nrow(data)))\n#   })\n  \n#   output$bill_plot &lt;- renderPlot({\n#     plot(1, type=\"n\", main=\"Bill Rates\")\n#   })\n  \n#   output$long_term_plot &lt;- renderPlot({\n#     plot(1, type=\"n\", main=\"Long Term Rates\")\n#   })\n  \n#   output$real_plot &lt;- renderPlot({\n#     plot(1, type=\"n\", main=\"Real Yield Rates\")\n#   })\n# }\n\n# shinyApp(ui, server)"
-  },
-  {
-    "objectID": "inst/qmd/dailydashboard.html",
-    "href": "inst/qmd/dailydashboard.html",
-    "title": "XKCD",
-    "section": "",
-    "text": "&lt;div class=\"card\"&gt;\n  &lt;div class=\"card-header\"&gt;Satellite Imagery&lt;/div&gt;\n  &lt;div style=\"text-align: center; padding: 20px;\"&gt;\n    &lt;a href=\"https://www.explainxkcd.com/wiki/index.php/3173\" target=\"_blank\" title=\"https://www.explainxkcd.com/wiki/index.php/3173\"&gt;\n      &lt;img src=\"https://imgs.xkcd.com/comics/satellite_imagery.png\" title=\"Every weekend I take an ATV out into the desert and spend a day tracing a faint \"(C) GOOGLE 2009\" watermark across the landscape.\" style=\"max-width: 100%; height: auto; cursor: pointer;\"&gt;\n    &lt;/a&gt;\n  &lt;/div&gt;\n  &lt;div class=\"card-footer text-muted\"&gt;Every weekend I take an ATV out into the desert and spend a day tracing a faint \"(C) GOOGLE 2009\" watermark across the landscape.&lt;/div&gt;\n&lt;/div&gt;"
-  },
-  {
-    "objectID": "inst/qmd/dailydashboard.html#latest-xkcd",
-    "href": "inst/qmd/dailydashboard.html#latest-xkcd",
-    "title": "XKCD",
-    "section": "",
-    "text": "&lt;div class=\"card\"&gt;\n  &lt;div class=\"card-header\"&gt;Satellite Imagery&lt;/div&gt;\n  &lt;div style=\"text-align: center; padding: 20px;\"&gt;\n    &lt;a href=\"https://www.explainxkcd.com/wiki/index.php/3173\" target=\"_blank\" title=\"https://www.explainxkcd.com/wiki/index.php/3173\"&gt;\n      &lt;img src=\"https://imgs.xkcd.com/comics/satellite_imagery.png\" title=\"Every weekend I take an ATV out into the desert and spend a day tracing a faint \"(C) GOOGLE 2009\" watermark across the landscape.\" style=\"max-width: 100%; height: auto; cursor: pointer;\"&gt;\n    &lt;/a&gt;\n  &lt;/div&gt;\n  &lt;div class=\"card-footer text-muted\"&gt;Every weekend I take an ATV out into the desert and spend a day tracing a faint \"(C) GOOGLE 2009\" watermark across the landscape.&lt;/div&gt;\n&lt;/div&gt;"
-  },
-  {
-    "objectID": "R-lib-local/dailydashboard/qmd/treasury.html",
-    "href": "R-lib-local/dailydashboard/qmd/treasury.html",
-    "title": "Treasury Rates",
-    "section": "",
-    "text": "# library(shiny)\n# library(bslib)\n# library(jsonlite)\n# library(ggplot2)\n# library(dplyr)\n# library(munsell) # Fix for missing dependency in WASM\n# library(scales)  # Fix for missing dependency in WASM\n\n# ui &lt;- page_fluid(\n#   theme = bs_theme(version = 5),\n#   navset_card_tab(\n#     nav_panel(\"Yield Curve\", plotOutput(\"yield_plot\")),\n#     nav_panel(\"Bill Rates\", plotOutput(\"bill_plot\")),\n#     nav_panel(\"Long Term\", plotOutput(\"long_term_plot\")),\n#     nav_panel(\"Real Yield\", plotOutput(\"real_plot\"))\n#   )\n# )\n\n# server &lt;- function(input, output, session) {\n  \n#   treasury_data &lt;- reactive({\n#     jsonlite::read_json(\"data/treasury.json\", simplifyVector = TRUE)\n#   })\n  \n#   output$yield_plot &lt;- renderPlot({\n#     data &lt;- treasury_data()$yield_curve\n#     # Assuming data structure from treasury package (date, value, var/maturity)\n#     # We might need to inspect the data structure. \n#     # For now, assuming standard tidy format or similar.\n#     # If it's wide, we might need to pivot.\n    \n#     # Since we don't know the exact structure without running it, \n#     # we'll try to plot whatever we get, or print str() if debugging.\n    \n#     # Let's assume it has a 'date' and columns for rates.\n#     # If simplifyVector=TRUE, it should be a data frame.\n    \n#     if (is.null(data)) return(NULL)\n    \n#     # Basic visualization - needs refinement based on actual data structure\n#     # For now, just plotting the first numeric column vs Date if possible\n    \n#     # If the data is a list of lists (from JSON), simplifyVector might handle it.\n    \n#     # Placeholder plot\n#     plot(1, type=\"n\", main=\"Yield Curve Data Loaded\")\n#     text(1, 1, paste(\"Rows:\", nrow(data)))\n#   })\n  \n#   output$bill_plot &lt;- renderPlot({\n#     plot(1, type=\"n\", main=\"Bill Rates\")\n#   })\n  \n#   output$long_term_plot &lt;- renderPlot({\n#     plot(1, type=\"n\", main=\"Long Term Rates\")\n#   })\n  \n#   output$real_plot &lt;- renderPlot({\n#     plot(1, type=\"n\", main=\"Real Yield Rates\")\n#   })\n# }\n\n# shinyApp(ui, server)"
-  },
-  {
-    "objectID": "R-lib-local/dailydashboard/qmd/treasury.html#daily-treasury-rates",
-    "href": "R-lib-local/dailydashboard/qmd/treasury.html#daily-treasury-rates",
-    "title": "Treasury Rates",
-    "section": "",
-    "text": "# library(shiny)\n# library(bslib)\n# library(jsonlite)\n# library(ggplot2)\n# library(dplyr)\n# library(munsell) # Fix for missing dependency in WASM\n# library(scales)  # Fix for missing dependency in WASM\n\n# ui &lt;- page_fluid(\n#   theme = bs_theme(version = 5),\n#   navset_card_tab(\n#     nav_panel(\"Yield Curve\", plotOutput(\"yield_plot\")),\n#     nav_panel(\"Bill Rates\", plotOutput(\"bill_plot\")),\n#     nav_panel(\"Long Term\", plotOutput(\"long_term_plot\")),\n#     nav_panel(\"Real Yield\", plotOutput(\"real_plot\"))\n#   )\n# )\n\n# server &lt;- function(input, output, session) {\n  \n#   treasury_data &lt;- reactive({\n#     jsonlite::read_json(\"data/treasury.json\", simplifyVector = TRUE)\n#   })\n  \n#   output$yield_plot &lt;- renderPlot({\n#     data &lt;- treasury_data()$yield_curve\n#     # Assuming data structure from treasury package (date, value, var/maturity)\n#     # We might need to inspect the data structure. \n#     # For now, assuming standard tidy format or similar.\n#     # If it's wide, we might need to pivot.\n    \n#     # Since we don't know the exact structure without running it, \n#     # we'll try to plot whatever we get, or print str() if debugging.\n    \n#     # Let's assume it has a 'date' and columns for rates.\n#     # If simplifyVector=TRUE, it should be a data frame.\n    \n#     if (is.null(data)) return(NULL)\n    \n#     # Basic visualization - needs refinement based on actual data structure\n#     # For now, just plotting the first numeric column vs Date if possible\n    \n#     # If the data is a list of lists (from JSON), simplifyVector might handle it.\n    \n#     # Placeholder plot\n#     plot(1, type=\"n\", main=\"Yield Curve Data Loaded\")\n#     text(1, 1, paste(\"Rows:\", nrow(data)))\n#   })\n  \n#   output$bill_plot &lt;- renderPlot({\n#     plot(1, type=\"n\", main=\"Bill Rates\")\n#   })\n  \n#   output$long_term_plot &lt;- renderPlot({\n#     plot(1, type=\"n\", main=\"Long Term Rates\")\n#   })\n  \n#   output$real_plot &lt;- renderPlot({\n#     plot(1, type=\"n\", main=\"Real Yield Rates\")\n#   })\n# }\n\n# shinyApp(ui, server)"
-  },
-  {
-    "objectID": "R-lib-local/dailydashboard/qmd/dailydashboard.html",
-    "href": "R-lib-local/dailydashboard/qmd/dailydashboard.html",
-    "title": "XKCD",
-    "section": "",
-    "text": "[1] \"Error: Data file not found at data/xkcd.json\""
-  },
-  {
-    "objectID": "R-lib-local/dailydashboard/qmd/dailydashboard.html#latest-xkcd",
-    "href": "R-lib-local/dailydashboard/qmd/dailydashboard.html#latest-xkcd",
-    "title": "XKCD",
-    "section": "",
-    "text": "[1] \"Error: Data file not found at data/xkcd.json\""
+    "objectID": "index.html#dashboard-pages",
+    "href": "index.html#dashboard-pages",
+    "title": "Daily Dashboard",
+    "section": "Dashboard Pages",
+    "text": "Dashboard Pages\n\nXKCD: The latest comic from xkcd.com.\nTreasury Rates: Daily US Treasury yield curves and interest rates."
   }
 ]
