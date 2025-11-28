@@ -13,6 +13,7 @@ r_pkgs <- c(
   "xml2",
   "bslib",
   "jsonlite",
+  "logger",
   "cli",
   "rlang",
   "codetools", 

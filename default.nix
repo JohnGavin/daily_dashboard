@@ -25,6 +25,7 @@ let
       ggplot2
       httr2
       jsonlite
+      logger
       rlang
       rvest
       shiny
