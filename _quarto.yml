@@ -8,7 +8,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: xkcd_final.qmd
+      - href: xkcd.qmd
         text: XKCD
       # - href: treasury.qmd
       #   text: Treasury
