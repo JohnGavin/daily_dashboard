@@ -3,11 +3,15 @@ project:
   output-dir: docs
 
 website:
-  title: "Daily Dashboard" # Force rebuild
+  title: "Daily Dashboard"
   navbar:
     left:
       - href: index.qmd
         text: Home
+      - href: xkcd.qmd
+        text: XKCD
+      - href: treasury.qmd
+        text: Treasury
 
 format:
   html:
