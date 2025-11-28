@@ -1,16 +1,11 @@
 ---
-title: "Daily Dashboard"
+title: "Redirecting..."
+format: html
 ---
 
-## Welcome
+<meta http-equiv="refresh" content="0; url=xkcd_final.html" />
 
-This is the daily dashboard.
-<!-- Dummy comment to force rebuild -->
-
-## Dashboard Pages
-
-*   [**XKCD**](xkcd.html): The latest comic from xkcd.com.
-*   [**Treasury Rates**](treasury.html): Daily US Treasury yield curves and interest rates.
+[Click here if you are not redirected.](xkcd_final.html)
 
 ```{=html}
 <script>

@@ -8,10 +8,6 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: xkcd.qmd
-        text: XKCD
-      # - href: treasury.qmd
-      #   text: Treasury
 
 format:
   html:
