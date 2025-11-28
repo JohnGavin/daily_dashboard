@@ -7,12 +7,17 @@ on:
     - cron: '0 0 * * *' # Daily at midnight
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build-and-deploy:
     name: Build and Deploy
     runs-on: ubuntu-22.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -51,22 +56,11 @@ jobs:
           QUARTO_BIN_DIR=$(nix-shell default.nix --run "dirname \$(which quarto)")
           echo "$QUARTO_BIN_DIR" >> $GITHUB_PATH
 
-      - name: Create gh-pages branch if missing
-        run: |
-          git config --global user.email "actions@github.com"
-          git config --global user.name "GitHub Actions"
-          if ! git ls-remote --exit-code --heads origin gh-pages; then
-            echo "Creating gh-pages branch..."
-            git checkout --orphan gh-pages
-            git reset --hard
-            git commit --allow-empty -m "Initialize gh-pages branch"
-            git push origin gh-pages
-            git checkout ${{ github.sha }}
-          fi
-
-      - name: Publish to GitHub Pages
-        uses: quarto-dev/quarto-actions/publish@v2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          target: gh-pages
           path: docs
-          render: false # We already rendered it
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
