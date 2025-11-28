@@ -47,7 +47,7 @@ jobs:
         run: nix-shell default.nix --run "quarto render"
 
       - name: Flatten Output for XKCD
-        run: cp docs/inst/qmd/xkcd.html docs/xkcd.html
+        run: cp docs/inst/qmd/xkcd_static.html docs/xkcd_static.html
 
       - name: Expose Quarto to GHA Path
         run: |
