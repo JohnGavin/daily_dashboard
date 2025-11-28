@@ -3,7 +3,6 @@ library(rix)
 # Packages from DESCRIPTION
 r_pkgs <- c(
   "shiny",
-  "shinylive",
   "targets",
   "tarchetypes",
   "ggplot2",

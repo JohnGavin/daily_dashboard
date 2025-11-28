@@ -4,71 +4,71 @@ title: "Treasury Rates"
 
 ## Daily Treasury Rates
 
-```{shinylive-r}
+```{r}
 #| standalone: true
 #| viewerHeight: 800
 
-library(shiny)
-library(bslib)
-library(jsonlite)
-library(ggplot2)
-library(dplyr)
-library(munsell) # Fix for missing dependency in WASM
-library(scales)  # Fix for missing dependency in WASM
+# library(shiny)
+# library(bslib)
+# library(jsonlite)
+# library(ggplot2)
+# library(dplyr)
+# library(munsell) # Fix for missing dependency in WASM
+# library(scales)  # Fix for missing dependency in WASM
 
-ui <- page_fluid(
-  theme = bs_theme(version = 5),
-  navset_card_tab(
-    nav_panel("Yield Curve", plotOutput("yield_plot")),
-    nav_panel("Bill Rates", plotOutput("bill_plot")),
-    nav_panel("Long Term", plotOutput("long_term_plot")),
-    nav_panel("Real Yield", plotOutput("real_plot"))
-  )
-)
+# ui <- page_fluid(
+#   theme = bs_theme(version = 5),
+#   navset_card_tab(
+#     nav_panel("Yield Curve", plotOutput("yield_plot")),
+#     nav_panel("Bill Rates", plotOutput("bill_plot")),
+#     nav_panel("Long Term", plotOutput("long_term_plot")),
+#     nav_panel("Real Yield", plotOutput("real_plot"))
+#   )
+# )
 
-server <- function(input, output, session) {
+# server <- function(input, output, session) {
   
-  treasury_data <- reactive({
-    jsonlite::read_json("data/treasury.json", simplifyVector = TRUE)
-  })
+#   treasury_data <- reactive({
+#     jsonlite::read_json("data/treasury.json", simplifyVector = TRUE)
+#   })
   
-  output$yield_plot <- renderPlot({
-    data <- treasury_data()$yield_curve
-    # Assuming data structure from treasury package (date, value, var/maturity)
-    # We might need to inspect the data structure. 
-    # For now, assuming standard tidy format or similar.
-    # If it's wide, we might need to pivot.
+#   output$yield_plot <- renderPlot({
+#     data <- treasury_data()$yield_curve
+#     # Assuming data structure from treasury package (date, value, var/maturity)
+#     # We might need to inspect the data structure. 
+#     # For now, assuming standard tidy format or similar.
+#     # If it's wide, we might need to pivot.
     
-    # Since we don't know the exact structure without running it, 
-    # we'll try to plot whatever we get, or print str() if debugging.
+#     # Since we don't know the exact structure without running it, 
+#     # we'll try to plot whatever we get, or print str() if debugging.
     
-    # Let's assume it has a 'date' and columns for rates.
-    # If simplifyVector=TRUE, it should be a data frame.
+#     # Let's assume it has a 'date' and columns for rates.
+#     # If simplifyVector=TRUE, it should be a data frame.
     
-    if (is.null(data)) return(NULL)
+#     if (is.null(data)) return(NULL)
     
-    # Basic visualization - needs refinement based on actual data structure
-    # For now, just plotting the first numeric column vs Date if possible
+#     # Basic visualization - needs refinement based on actual data structure
+#     # For now, just plotting the first numeric column vs Date if possible
     
-    # If the data is a list of lists (from JSON), simplifyVector might handle it.
+#     # If the data is a list of lists (from JSON), simplifyVector might handle it.
     
-    # Placeholder plot
-    plot(1, type="n", main="Yield Curve Data Loaded")
-    text(1, 1, paste("Rows:", nrow(data)))
-  })
+#     # Placeholder plot
+#     plot(1, type="n", main="Yield Curve Data Loaded")
+#     text(1, 1, paste("Rows:", nrow(data)))
+#   })
   
-  output$bill_plot <- renderPlot({
-    plot(1, type="n", main="Bill Rates")
-  })
+#   output$bill_plot <- renderPlot({
+#     plot(1, type="n", main="Bill Rates")
+#   })
   
-  output$long_term_plot <- renderPlot({
-    plot(1, type="n", main="Long Term Rates")
-  })
+#   output$long_term_plot <- renderPlot({
+#     plot(1, type="n", main="Long Term Rates")
+#   })
   
-  output$real_plot <- renderPlot({
-    plot(1, type="n", main="Real Yield Rates")
-  })
-}
+#   output$real_plot <- renderPlot({
+#     plot(1, type="n", main="Real Yield Rates")
+#   })
+# }
 
-shinyApp(ui, server)
+# shinyApp(ui, server)
 ```
