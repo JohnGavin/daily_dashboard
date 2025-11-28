@@ -1,1 +1,0 @@
-/Users/johngavin/docs_gh/claude_rix/context_claude.md
