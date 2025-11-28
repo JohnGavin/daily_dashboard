@@ -18,4 +18,6 @@ Imports:
     tibble,
     httr2,
     jsonlite,
-    janitor
+    janitor,
+    rvest,
+    xml2

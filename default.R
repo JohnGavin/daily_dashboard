@@ -10,7 +10,9 @@ r_pkgs <- c(
   "tibble",
   "httr2",
   "jsonlite",
-  "janitor"
+  "janitor",
+  "rvest",
+  "xml2"
 )
 
 system_pkgs <- c(

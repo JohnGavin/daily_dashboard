@@ -22,10 +22,12 @@ let
       httr2
       janitor
       jsonlite
+      rvest
       shiny
       tarchetypes
       targets
-      tibble;
+      tibble
+      xml2;
   };
       
   system_packages = builtins.attrValues {
