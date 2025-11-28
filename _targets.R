@@ -22,17 +22,17 @@ list(
       "data/xkcd.json"
     },
     format = "file"
-  ),
-  tar_target(
-    treasury_data,
-    fetch_treasury_data()
-  ),
-  tar_target(
-    treasury_file,
-    {
-      jsonlite::write_json(treasury_data, "data/treasury.json", auto_unbox = TRUE)
-      "data/treasury.json"
-    },
-    format = "file"
-  )
+  )#,
+  # tar_target(
+  #   treasury_data,
+  #   fetch_treasury_data()
+  # ),
+  # tar_target(
+  #   treasury_file,
+  #   {
+  #     jsonlite::write_json(treasury_data, "data/treasury.json", auto_unbox = TRUE)
+  #     "data/treasury.json"
+  #   },
+  #   format = "file"
+  # )
 )
