@@ -26,7 +26,7 @@ system_pkgs <- c(
 )
 
 rix(
-  date = "2024-10-01",
+  date = "2025-11-24",
   r_pkgs = r_pkgs,
   system_pkgs = system_pkgs,
   ide = "none",

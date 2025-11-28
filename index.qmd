@@ -1,19 +1,8 @@
 ---
-title: "Daily Dashboard"
-format:
-  html:
-    resources: 
-      - shinylive-sw.js
-filters:
-  - shinylive
+title: "Redirecting..."
+format: html
 ---
 
-## Welcome
+<meta http-equiv="refresh" content="0; url=inst/qmd/index.html" />
 
-This is the daily dashboard.
-
-## Dashboard Pages
-
-*   [**XKCD**](xkcd.html): The latest comic from xkcd.com.
-*   [**Treasury Rates**](treasury.html): Daily US Treasury yield curves and interest rates.
-
+[Click here if you are not redirected.](inst/qmd/index.html)

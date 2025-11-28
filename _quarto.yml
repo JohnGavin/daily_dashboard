@@ -6,9 +6,9 @@ website:
   title: "Daily Dashboard"
   navbar:
     left:
-      - href: index.qmd
+      - href: inst/qmd/index.qmd
         text: Home
-      - href: xkcd.qmd
+      - href: inst/qmd/xkcd.qmd
         text: XKCD
       # - href: treasury.qmd
       #   text: Treasury
