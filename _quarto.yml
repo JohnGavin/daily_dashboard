@@ -10,8 +10,8 @@ website:
         text: Home
       - href: inst/qmd/xkcd.qmd
         text: XKCD
-      # - href: treasury.qmd
-      #   text: Treasury
+      - href: inst/qmd/treasury.qmd
+        text: Treasury
 
 format:
   html:

@@ -21,4 +21,5 @@ Imports:
     rvest,
     xml2,
     bslib,
-    jsonlite
+    jsonlite,
+    treasury

@@ -22,7 +22,7 @@ list(
       "data/xkcd.json"
     },
     format = "file"
-  )#,
+  ),
   # tar_target(
   #   treasury_data,
   #   fetch_treasury_data()
