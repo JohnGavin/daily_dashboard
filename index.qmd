@@ -6,3 +6,17 @@ format: html
 <meta http-equiv="refresh" content="0; url=inst/qmd/index.html" />
 
 [Click here if you are not redirected.](inst/qmd/index.html)
+
+```{=html}
+<script>
+// Immediately unregister any service workers to fix the "cannot open connection" Shinylive error
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then(function(registrations) {
+    for(let registration of registrations) {
+      console.log('Unregistering Service Worker:', registration);
+      registration.unregister();
+    }
+  });
+}
+</script>
+```
