@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Daily Dashboard"
+  title: "Daily Dashboard v2"
   navbar:
     left:
       - href: index.qmd
