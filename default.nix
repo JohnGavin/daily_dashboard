@@ -17,23 +17,15 @@ let
  
   rpkgs = builtins.attrValues {
     inherit (pkgs.rPackages) 
-      bslib
-      cli
-      codetools
-      curl
       dplyr
       ggplot2
       httr2
+      janitor
       jsonlite
-      logger
-      rlang
-      rvest
       shiny
       tarchetypes
       targets
-      tibble
-      treasury
-      xml2;
+      tibble;
   };
       
   system_packages = builtins.attrValues {

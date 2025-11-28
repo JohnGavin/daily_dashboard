@@ -17,9 +17,5 @@ Imports:
     dplyr,
     tibble,
     httr2,
-    rvest,
-    xml2,
-    bslib,
     jsonlite,
-    logger,
-    treasury
+    janitor

@@ -9,16 +9,8 @@ r_pkgs <- c(
   "dplyr",
   "tibble",
   "httr2",
-  "rvest",
-  "xml2",
-  "bslib",
   "jsonlite",
-  "logger",
-  "cli",
-  "rlang",
-  "codetools", 
-  "curl",
-  "treasury"
+  "janitor"
 )
 
 system_pkgs <- c(

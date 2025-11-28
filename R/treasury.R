@@ -2,32 +2,51 @@
 #'
 #' @return A list containing various treasury rates
 #' @export
-library(logger) # Load logger package
 
 fetch_treasury_data <- function() {
-  log_info("Starting fetch_treasury_data()")
-
-  log_info("Fetching yield curve...")
-  yield_curve <- treasury::tr_yield_curve()
-  log_info("Yield curve fetched.")
-
-  log_info("Fetching bill rates...")
-  bill_rates <- treasury::tr_bill_rate()
-  log_info("Bill rates fetched.")
-
-  log_info("Fetching long term rates...")
-  long_term <- treasury::tr_long_term_rate()
-  log_info("Long term rates fetched.")
-
-  log_info("Fetching real yield...")
-  real_yield <- treasury::tr_real_yield_curve()
-  log_info("Real yield fetched.")
+  # Define the base URL for Treasury API
+  base_url <- "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/json/yield"
   
-  log_info("Completed fetch_treasury_data()")
-  list(
-    yield_curve = yield_curve,
-    bill_rates = bill_rates,
-    long_term = long_term,
-    real_yield = real_yield
-  )
+  # Fetch data for the current year (or adapt as needed)
+  # For simplicity, let's fetch for a recent full year
+  current_year <- as.integer(format(Sys.Date(), "%Y"))
+  url <- paste0(base_url, "?queryType=DailyArchive&month=all&year=", current_year)
+  
+  message("Fetching Treasury data directly from: ", url)
+  
+  response <- tryCatch({
+    httr2::request(url) %>%
+      httr2::req_timeout(30) %>% # Set a 30-second timeout
+      httr2::req_error(is_error = ~ FALSE) %>% # Don't error on bad status, check later
+      httr2::req_perform()
+  }, error = function(e) {
+    warning("HTTP request failed: ", e$message)
+    return(NULL)
+  })
+  
+  if (is.null(response) || httr2::resp_is_error(response)) {
+    warning("Failed to fetch Treasury data. Status: ", httr2::resp_status(response))
+    return(NULL)
+  }
+  
+  data_list <- httr2::resp_body_json(response)
+  
+  # The API returns a list of dictionaries, where "data" key holds the actual list
+  # We need to extract the "data" part and convert it to a data frame
+  if (!is.null(data_list$data) && length(data_list$data) > 0) {
+    treasury_df <- bind_rows(data_list$data) %>%
+      janitor::clean_names() # Clean names for easier access
+    
+    # Convert date strings to Date objects
+    # Assuming the date field is 'new_date' from janitor::clean_names
+    treasury_df <- treasury_df %>%
+      mutate(new_date = as.Date(new_date))
+    
+    message("Successfully fetched ", nrow(treasury_df), " rows of Treasury data.")
+    return(treasury_df)
+    
+  } else {
+    message("No data found in Treasury API response.")
+    return(NULL)
+  }
 }
