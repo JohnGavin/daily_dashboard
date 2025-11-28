@@ -5,6 +5,7 @@ title: "Daily Dashboard"
 ## Welcome
 
 This is the daily dashboard.
+<!-- Dummy comment to force rebuild -->
 
 ## Dashboard Pages
 
