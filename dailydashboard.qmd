@@ -31,6 +31,17 @@ if (file.exists(data_path)) {
      )
   }
 }
+
+# Function to escape double quotes for HTML attributes
+sanitize <- function(x) {
+  if (is.null(x)) return("")
+  gsub('"', '&quot;', x)
+}
+
+data$title <- sanitize(data$title)
+data$alt <- sanitize(data$alt)
+data$img <- sanitize(data$img)
+data$explain_url <- sanitize(data$explain_url)
 ```
 
 <div class="card">
